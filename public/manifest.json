@@ -1,0 +1,6 @@
+{
+  "short_name": "React App",
+  "name": "Server Explorer App",
+  "start_url": ".",
+  "display": "standalone"
+}

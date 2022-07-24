@@ -1,0 +1,27 @@
+.navbar-container {
+  background-color: #489fb5;
+  color: #ede7e3;
+  height: 2.5rem;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  h4 {
+    margin: auto 1rem;
+    font-family: "Edu NSW ACT Foundation", cursive;
+  }
+
+  button {
+    background-color: #16697a;
+    color: #a9d3db;
+    margin: auto 1rem;
+    padding: 8px;
+    border: none;
+    border-radius: 0.25rem;
+    &:hover {
+      cursor: pointer;
+      background-color: #104a56;
+    }
+  }
+}
