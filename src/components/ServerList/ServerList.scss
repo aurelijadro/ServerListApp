@@ -1,0 +1,19 @@
+.server-list-container {
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input {
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #16697a;
+  color: #16697a;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  padding: 16px;
+  margin: 16px 8px;
+  width: 450px;
+  min-width: 250px;
+  align-self: center;
+}

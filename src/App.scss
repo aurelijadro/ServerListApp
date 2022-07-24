@@ -1,8 +1,6 @@
 .app-container {
   color: #08090a;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   background-color: #a9d3db;
-  height: 100vh;
+  min-height: calc(100vh - 16px);
+  padding-bottom: 16px;
 }

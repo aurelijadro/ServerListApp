@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectServerList, setServerList } from "../../app/serverListSlice";
 import { ServerTable } from "../ServerTable/ServerTable";
 
+import "./ServerList.scss";
+
 export const ServerList = () => {
   const token = useAppSelector(selectToken);
   const serverList = useAppSelector(selectServerList);
@@ -19,12 +21,17 @@ export const ServerList = () => {
   }, [dispatch, token]);
 
   return (
-    <>
-      <input
-        type="text"
-        onChange={(event) => setSearchData(event?.target.value)}
-      />
+    <div className="server-list-container">
+      <label>
+        Search for the server:
+        <input
+          className="search-input"
+          autoFocus
+          type="text"
+          onChange={(event) => setSearchData(event?.target.value)}
+        />
+      </label>
       <ServerTable serverList={serverList} searchData={searchData} />
-    </>
+    </div>
   );
 };

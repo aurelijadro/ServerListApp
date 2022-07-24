@@ -1,0 +1,47 @@
+.server-table-container {
+  border-radius: 0.25rem;
+  background-color: #135967;
+  display: flex;
+  flex-direction: column;
+  color: #ede7e3;
+  min-width: 450px;
+
+  table,
+  th,
+  td {
+    border: none;
+  }
+
+  td {
+    padding: 8px;
+  }
+
+  th {
+    text-align: left;
+    padding: 16px 8px;
+  }
+}
+
+.server-table-sort {
+  background-image: url(./icon-sort-small.png);
+  width: 16px;
+  height: 16px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+.server-table-row-odd {
+  background-color: #166879;
+}
+.server-table-row-even {
+  background-color: #19778a;
+}
+
+.server-table-no-data {
+  text-align: center;
+}
