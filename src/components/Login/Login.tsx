@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./Login.scss";
 
-type LoginPageProps = {
+type LoginProps = {
   onSubmit: (username: string, password: string) => void;
   loginError?: string;
 };
 
-export const LoginPage = ({ onSubmit }: LoginPageProps) => {
+export const Login = ({ onSubmit }: LoginProps) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoginDataValid, setIsLoginDataValid] = useState(false);
