@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import { useAppSelector, useAppDispatch } from "./app/hooks";
 import { Login } from "./components/Login/Login";
@@ -8,6 +8,9 @@ import { getAuthorizationToken } from "./app/api";
 import { ServerList } from "./components/ServerList/ServerList";
 
 function App() {
+  useEffect(() => {
+    dispatch(assignToken(sessionStorage.getItem("token") || ""));
+  });
   const token = useAppSelector(selectToken);
   const dispatch = useAppDispatch();
 
@@ -23,7 +26,10 @@ function App() {
         setLoginError("");
         return response.json();
       })
-      .then((data) => dispatch(assignToken(data.token)))
+      .then((data) => {
+        dispatch(assignToken(data.token));
+        sessionStorage.setItem("token", data.token);
+      })
       .catch((error) => setLoginError(error.message));
   };
 

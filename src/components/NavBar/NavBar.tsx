@@ -10,12 +10,15 @@ type NavBarProps = {
 export const NavBar = ({ iSLoggedIn }: NavBarProps) => {
   const dispatch = useAppDispatch();
 
+  const logOut = () => {
+    sessionStorage.removeItem("token");
+    dispatch(resetToken());
+  };
+
   return (
     <div className="navbar-container">
       <h4>Find Your Server</h4>
-      {iSLoggedIn && (
-        <button onClick={() => dispatch(resetToken())}>Log Out</button>
-      )}
+      {iSLoggedIn && <button onClick={logOut}>Log Out</button>}
     </div>
   );
 };
