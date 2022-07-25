@@ -3,10 +3,10 @@ import "./Login.scss";
 
 type LoginProps = {
   onSubmit: (username: string, password: string) => void;
-  loginError?: string;
+  loginError: string;
 };
 
-export const Login = ({ onSubmit }: LoginProps) => {
+export const Login = ({ onSubmit, loginError }: LoginProps) => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoginDataValid, setIsLoginDataValid] = useState(false);
@@ -57,6 +57,7 @@ export const Login = ({ onSubmit }: LoginProps) => {
           required
           onChange={(event) => onInputChange(setPassword(event?.target.value))}
         ></input>
+        <p className="login-error">{loginError}</p>
         <button type="submit" disabled={!isLoginDataValid}>
           LOGIN
         </button>

@@ -23,13 +23,18 @@
     min-width: 250px;
   }
 
+  .login-error {
+    margin-bottom: 0;
+    height: 8px;
+  }
+
   button {
     margin: 24px 0;
     background-color: #ffcc85;
     border: none;
     border-radius: 0.25rem;
     color: #08090a;
-    width: 482px;
+    width: 484px;
     padding: 8px;
 
     &:hover {

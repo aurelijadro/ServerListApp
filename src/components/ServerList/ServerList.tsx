@@ -13,11 +13,21 @@ export const ServerList = () => {
   const dispatch = useAppDispatch();
 
   const [searchData, setSearchData] = useState("");
+  const [fetchServerListError, setFetchServerListError] = useState<string>("");
 
   useEffect(() => {
     getServerList(token!)
-      .then((response) => response.json())
-      .then((data) => dispatch(setServerList(data)));
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(
+            "Oops! There was an issue with your request. Try again later."
+          );
+        }
+        setFetchServerListError("");
+        return response.json();
+      })
+      .then((data) => dispatch(setServerList(data)))
+      .catch((error) => setFetchServerListError(error.message));
   }, [dispatch, token]);
 
   return (
@@ -31,7 +41,11 @@ export const ServerList = () => {
           onChange={(event) => setSearchData(event?.target.value)}
         />
       </label>
-      <ServerTable serverList={serverList} searchData={searchData} />
+      {fetchServerListError ? (
+        <p>{fetchServerListError}</p>
+      ) : (
+        <ServerTable serverList={serverList} searchData={searchData} />
+      )}
     </div>
   );
 };
