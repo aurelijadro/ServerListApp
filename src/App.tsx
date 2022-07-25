@@ -19,9 +19,8 @@ function App() {
   const onSubmit = (username: string, password: string) => {
     getAuthorizationToken(username, password)
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
-          throw Error("Login failed. Check your credetials and try again.");
+          throw Error("Login failed. Check your credentials and try again.");
         }
         setLoginError("");
         return response.json();

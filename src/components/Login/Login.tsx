@@ -45,6 +45,7 @@ export const Login = ({ onSubmit, loginError }: LoginProps) => {
           id="username"
           name="username"
           required
+          autoComplete="off"
           onChange={(event) => onInputChange(setUsername(event?.target.value))}
         ></input>
 
@@ -55,6 +56,7 @@ export const Login = ({ onSubmit, loginError }: LoginProps) => {
           id="password"
           name="password"
           required
+          autoComplete="off"
           onChange={(event) => onInputChange(setPassword(event?.target.value))}
         ></input>
         <p className="login-error">{loginError}</p>
